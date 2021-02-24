@@ -1,2 +1,3 @@
 module chess {
+	requires guava;
 }
