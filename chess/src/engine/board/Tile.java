@@ -15,10 +15,10 @@ import com.google.common.collect.ImmutableMap;
 public abstract class Tile {
 
 	protected final int tileCoordinate;
-	
+	// All the tiles in the board
 	private static final Map<Integer,EmptyTile> EMPTY_TILES = createAllPossibleEmptyTiles();
 	
-	
+	//Generating all the tiles
 	private static Map<Integer, EmptyTile> createAllPossibleEmptyTiles() {
 		final Map<Integer,EmptyTile> emptyTileMap = new HashMap<>();
 		
@@ -28,9 +28,13 @@ public abstract class Tile {
 		
 		return ImmutableMap.copyOf(emptyTileMap);
 	}
-
 	
-	public Tile(int tileCoordinate) {
+	// Function to create a tile
+	public static Tile createTile(final int tileCoordinate,final Piece piece) {
+		return piece != null ? new OccupiedTile(tileCoordinate,piece):EMPTY_TILES.get(tileCoordinate);
+	}
+	
+	private Tile(int tileCoordinate) {
 		this.tileCoordinate = tileCoordinate;
 	}
 
