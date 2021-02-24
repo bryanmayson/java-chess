@@ -1,7 +1,6 @@
-/**
- * 
- */
-package component;
+package engine.board;
+
+import engine.pieces.Piece;
 
 /**
  * @author bmayson
